@@ -1,0 +1,239 @@
+libpod-coverage-perl (0.23-2) unstable; urgency=medium
+
+  [ gregor herrmann ]
+  * Strip trailing slash from metacpan URLs.
+
+  [ Salvatore Bonaccorso ]
+  * Update Vcs-Browser URL to cgit web frontend
+  * debian/control: Use HTTPS transport protocol for Vcs-Git URI
+
+  [ gregor herrmann ]
+  * debian/copyright: change Copyright-Format 1.0 URL to HTTPS.
+  * Remove Antonio Radici from Uploaders. Thanks for your work!
+  * Remove Fabrizio Regalli from Uploaders. Thanks for your work!
+  * Remove Jay Bonci from Uploaders. Thanks for your work!
+
+  [ Salvatore Bonaccorso ]
+  * Update Vcs-* headers for switch to salsa.debian.org
+
+  [ gregor herrmann ]
+  * debian/copyright: replace tabs with spaces / remove trailing
+    whitespace.
+  * debian/watch: use uscan version 4.
+
+  [ Debian Janitor ]
+  * Trim trailing whitespace.
+  * Bump debhelper from deprecated 8 to 12.
+  * Set debhelper-compat version in Build-Depends.
+
+  [ gregor herrmann ]
+  * Add libpod-parser-perl to {build,runtime} dependencies.
+  * Update years of packaging copyright.
+  * Declare compliance with Debian Policy 4.5.0.
+  * Set Rules-Requires-Root: no.
+  * Annotate test-only build dependencies with <!nocheck>.
+  * Bump debhelper-compat to 13.
+
+ -- gregor herrmann <gregoa@debian.org>  Sun, 17 May 2020 13:56:34 +0200
+
+libpod-coverage-perl (0.23-1) unstable; urgency=low
+
+  * Team upload
+
+  [ Salvatore Bonaccorso ]
+  * Change Vcs-Git to canonical URI (git://anonscm.debian.org)
+  * Change search.cpan.org based URIs to metacpan.org based URIs
+
+  [ Florian Schlichting ]
+  * Import Upstream version 0.23.
+  * Bump Standards-Version to 3.9.4 (update to copyright-format 1.0).
+
+ -- Florian Schlichting <fsfs@debian.org>  Fri, 16 Aug 2013 15:00:28 +0200
+
+libpod-coverage-perl (0.22-1) unstable; urgency=low
+
+  [ Ansgar Burchardt ]
+  * Email change: Ansgar Burchardt -> ansgar@debian.org
+  * debian/control: Convert Vcs-* fields to Git.
+
+  [ Salvatore Bonaccorso ]
+  * debian/copyright: Replace DEP5 Format-Specification URL from
+    svn.debian.org to anonscm.debian.org URL.
+
+  [ Fabrizio Regalli ]
+  * Imported Upstream version 0.22
+  * Bump Standards-Version to 3.9.2 (no changes needed)
+  * Update d/compat to 8
+  * Update debhelper version to (>= 8)
+  * Added myself to Uploaders and Copyright
+  * Update d/copyright using latest .174 revision
+  * Removed 'GNU/Linux' from license text in d/copyright
+  * Added missing Files: stanza at the beginning of d/copyright
+  * Removed no more necessary --buildsystem=perl_build from d/rules
+
+ -- Fabrizio Regalli <fabreg@fabreg.it>  Fri, 10 Feb 2012 17:39:25 +0100
+
+libpod-coverage-perl (0.21-1) unstable; urgency=low
+
+  [ Nathan Handler ]
+  * debian/watch: Update to ignore development releases.
+
+  [ Ansgar Burchardt ]
+  * New upstream release.
+  * Use tiny debian/rules and Build.PL.
+  * Use source format 3.0 (quilt).
+  * Make build-dep on perl unversioned.
+  * debian/copyright: Formatting change for current DEP-5 proposal.
+  * debian/copyright: Refer to /usr/share/common-licenses/GPL-1.
+  * Bump Standards-Version to 3.9.1.
+  * Add myself to Uploaders.
+
+ -- Ansgar Burchardt <ansgar@43-1.org>  Wed, 28 Jul 2010 13:30:56 +0900
+
+libpod-coverage-perl (0.20-1) unstable; urgency=low
+
+  [ Antonio Radici ]
+  * debian/control:
+    + added myself to the Uploaders
+    + Standers-Version updated to 3.8.0
+    + moved libmodule-build-perl to B-D-I
+  * debian/copyright:
+    + switched to the new format
+
+  [ gregor herrmann ]
+  * debian/rules: remove /usr/bin only if it exists.
+  * debian/control: Changed: Switched Vcs-Browser field to ViewSVN
+    (source stanza).
+  * debian/control: Added: ${misc:Depends} to Depends: field.
+  * debian/watch: extended regexp for matching upstream releases.
+  * Set debhelper compatibility level to 7; adapt
+    debian/{control,compat,rules}.
+  * debian/control: remove libmodule-build-perl, dh7 prefers
+    ExtUtils::MakeMaker.
+  * Add /me to Uploaders.
+  * debian/control: improve short and long description.
+
+ -- Antonio Radici <antonio@dyne.org>  Fri, 20 Feb 2009 19:34:45 +0000
+
+libpod-coverage-perl (0.19-1) unstable; urgency=low
+
+  [ gregor herrmann ]
+  * New upstream release.
+  * debian/control: Added: Vcs-Svn field (source stanza); Vcs-Browser
+    field (source stanza); Homepage field (source stanza).
+  * Set Maintainer to Debian Perl Group.
+  * Use dist-based URL in debian/watch.
+  * debian/copyright: update with current contents of README.
+  * Remove debian/docs and don't install README any more, which is just the
+    pod.
+  * Remove debian/libpod-coverage-perl.examples and install examples
+    directly with dh_installexamples from debian/rules.
+  * Set debhelper compatibility level to 5.
+  * Set Standards-Version to 3.7.3 (no changes required).
+  * Split build dependencies into Build-Depends and Build-Depends-Indep, add
+    libtest-pod-perl.
+  * Revert changes to Build.PL that were contained in the .diff.gz, and
+    remove usr/bin/pod_cover (which is installed as an example) directly
+    from debian/rules.
+  * debian/rules:
+    - use dh_installpackages instead of pwd/sed
+    - move building and testing to build-target
+    - don't create .packlist file
+    - use $(PERL) instead of perl or calling ./Build directly
+    - introduce build-stamp and install-stamp and inter-target dependencies
+    - remove unneeded calls to dh_link and dh_strip
+    - exchange binary-arch and binary-indep, this package is arch:all after
+      all
+    - make examples/pod_cover executable, too
+
+  [ Damyan Ivanov ]
+  * Remove unneeded dh_installdirs and dh_installman
+  * debian/copyright
+    + added trailing slash to upstream URL
+    + added a bit of indentation
+    + added contributor David Cantrell <david@cantrell.org.uk>
+  * Add myself to Uploaders
+
+ -- Damyan Ivanov <dmn@debian.org>  Mon, 10 Dec 2007 12:21:58 +0200
+
+libpod-coverage-perl (0.18-1) unstable; urgency=low
+
+  * New upstream release
+  * Standards version bump to 3.7.2 (No other changes)
+  * Changed rules file to only conditionally ignore make clean errors
+  * Architecture from any to all
+
+ -- Jay Bonci <jaybonci@debian.org>  Sun, 08 Jul 2007 04:06:11 -0400
+
+libpod-coverage-perl (0.17-1) unstable; urgency=low
+
+  * New upstream verison
+
+ -- Jay Bonci <jaybonci@debian.org>  Wed, 29 Dec 2004 01:08:29 -0500
+
+libpod-coverage-perl (0.16-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Jay Bonci <jaybonci@debian.org>  Wed, 27 Oct 2004 15:39:14 -0400
+
+libpod-coverage-perl (0.14-2) unstable; urgency=low
+
+  * Add debian/watch file so uscan will work
+
+ -- Jay Bonci <jaybonci@debian.org>  Wed,  6 Oct 2004 01:04:05 -0400
+
+libpod-coverage-perl (0.14-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Jay Bonci <jaybonci@debian.org>  Wed, 21 Jul 2004 16:01:09 -0400
+
+libpod-coverage-perl (0.13-1) unstable; urgency=low
+
+  * New upstream version
+  * pod_cover now comes from bin/
+
+ -- Jay Bonci <jaybonci@debian.org>  Fri,  2 Jan 2004 15:29:04 -0500
+
+libpod-coverage-perl (0.12-4) unstable; urgency=low
+
+  * Rebuild for perl 5.8.2
+  * Adds -fPIC compiler flag for hppa / mips (Closes: #216179)
+
+ -- Jay Bonci <jaybonci@debian.org>  Tue, 11 Nov 2003 21:28:16 -0500
+
+libpod-coverage-perl (0.12-3) unstable; urgency=low
+
+  * binary-arch vs. binary-indep, again. (Closes: #215760)
+
+ -- Jay Bonci <jaybonci@debian.org>  Fri, 17 Oct 2003 00:33:18 -0400
+
+libpod-coverage-perl (0.12-2) unstable; urgency=low
+
+  * Fixes missing build-depends (Closes: #215056)
+    - Needs to depend on libmodule-build-perl
+
+ -- Jay Bonci <jaybonci@debian.org>  Fri, 10 Oct 2003 16:42:14 -0400
+
+libpod-coverage-perl (0.12-1) unstable; urgency=low
+
+  * New upstream version
+  * Updated maintainer address
+  * Changed CPAN URL to not be dependant on the dist version
+
+ -- Jay Bonci <jaybonci@debian.org>  Mon,  6 Oct 2003 14:05:18 -0400
+
+libpod-coverage-perl (0.11-2) unstable; urgency=low
+
+  * binary-arch vs. binary-indep. Fixes buildd problems (Closes: #207184)
+  * Added example from CPAN distribution in doc/examples
+  * debian-policy version 3.6.1.0
+
+ -- Jay Bonci <jay@bonci.com>  Mon, 18 Aug 2003 00:45:00 -0400
+
+libpod-coverage-perl (0.11-1) unstable; urgency=low
+
+  * Initial Release. (Closes: #178029)
+
+ -- Jay Bonci <jay@bonci.com>  Tue,  5 Aug 2003 15:02:16 -0400
